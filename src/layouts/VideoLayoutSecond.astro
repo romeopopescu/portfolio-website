@@ -1,0 +1,498 @@
+---
+import '../styles/global.css';
+import leavesVideo from '../assets/leaves.mp4';
+import leavesWind from '../assets/leaves-wind.mp4';
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Romeo Popescu - Fullstack Developer Portfolio" />
+        <link rel="icon" type="image/svg+xml" href="../assets/rupiah.png" />
+        <title>Romeo Popescu | Fullstack Developer</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <style>
+        .saira-font {
+            font-family: "Saira", sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+            font-variation-settings: "wdth" 100;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        .scroll-container {
+            scroll-behavior: smooth;
+        }
+
+        .social-link {
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px) scale(1.1);
+            filter: drop-shadow(0 4px 12px rgba(211, 211, 211, 0.5));
+        }
+
+        .project-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #D3D3D3, #FFFFFF, #D3D3D3);
+            background-size: 200% auto;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient 3s ease infinite;
+        }
+
+        @keyframes gradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .delay-1 { animation-delay: 0.1s; opacity: 0; }
+        .delay-2 { animation-delay: 0.2s; opacity: 0; }
+        .delay-3 { animation-delay: 0.3s; opacity: 0; }
+        .delay-4 { animation-delay: 0.4s; opacity: 0; }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        @media (max-width: 1024px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        </style>
+    </head>
+    <body class="saira-font">
+        <div class="relative w-full min-h-screen overflow-y-auto scroll-container">
+            <video autoplay muted loop playsinline
+                class="fixed top-0 left-0 w-full h-full object-cover -z-10">
+                <source src={leavesWind} type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+
+            <div class="fixed inset-0 bg-black/20 -z-5"></div>
+
+            <div class="relative z-10 pb-16">
+                
+                <header class="glass rounded-xl border border-white/20 shadow-2xl m-4 md:m-8 p-6 md:p-8 fade-in">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                        <div class="flex-1">
+                            <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold gradient-text mb-2">
+                                Romeo Popescu
+                            </h1>
+                            <p class="text-lg md:text-xl text-gray-300 font-light">
+                                Fullstack Developer
+                            </p>
+                            <p class="text-sm md:text-base text-gray-400 mt-2 max-w-2xl">
+                                Building elegant solutions with modern technologies. 
+                                Passionate about clean code and great user experiences.
+                            </p>
+                        </div>
+                        
+                        <div class="flex items-center gap-4 md:gap-6">
+                            <a href="https://github.com/romeopopescu" 
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                               class="social-link"
+                               aria-label="GitHub Profile">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 640 640" fill="#D3D3D3">
+                                    <path d="M544 160C544 124.7 515.3 96 480 96L160 96C124.7 96 96 124.7 96 160L96 480C96 515.3 124.7 544 160 544L480 544C515.3 544 544 515.3 544 480L544 160zM361.8 471.7C361.8 469.9 361.8 465.7 361.9 460.1C362 448.7 362 431.3 362 416.4C362 400.8 356.8 390.9 350.7 385.7C387.7 381.6 426.7 376.5 426.7 312.6C426.7 294.4 420.2 285.3 409.6 273.6C411.3 269.3 417 251.6 407.9 228.6C394 224.3 362.2 246.5 362.2 246.5C335.6 239 305.6 239 279 246.5C279 246.5 247.2 224.3 233.3 228.6C224.2 251.5 229.8 269.2 231.6 273.6C221 285.3 216 294.4 216 312.6C216 376.2 253.3 381.6 290.3 385.7C285.5 390 281.2 397.4 279.7 408C270.2 412.3 245.9 419.7 231.4 394.1C222.3 378.3 205.9 377 205.9 377C189.7 376.8 204.8 387.2 204.8 387.2C215.6 392.2 223.2 411.4 223.2 411.4C232.9 441.1 279.3 431.1 279.3 431.1C279.3 440.1 279.4 452.8 279.4 461.7C279.4 466.5 279.5 470.3 279.5 471.7C279.5 476 276.5 481.2 268 479.7C202 457.6 155.8 394.8 155.8 321.4C155.8 229.6 226 159.9 317.8 159.9C409.6 159.9 484 229.6 484 321.4C484.1 394.8 439.3 457.7 373.3 479.7C364.9 481.2 361.8 476 361.8 471.7zM271.3 416.9C271.1 415.4 272.4 414.1 274.3 413.7C276.2 413.5 278 414.3 278.2 415.6C278.5 416.9 277.2 418.2 275.2 418.6C273.3 419 271.5 418.2 271.3 416.9zM262.2 420.1C260 420.3 258.5 419.2 258.5 417.7C258.5 416.4 260 415.3 262 415.3C263.9 415.1 265.7 416.2 265.7 417.7C265.7 419 264.2 420.1 262.2 420.1zM247.9 417.9C246 417.5 244.7 416 245.1 414.7C245.5 413.4 247.5 412.8 249.2 413.2C251.2 413.8 252.5 415.3 252 416.6C251.6 417.9 249.6 418.5 247.9 417.9zM235.4 410.6C233.9 409.3 233.5 407.4 234.5 406.5C235.4 405.4 237.3 405.6 238.8 407.1C240.1 408.4 240.6 410.4 239.7 411.2C238.8 412.3 236.9 412.1 235.4 410.6zM226.9 400.6C225.8 399.1 225.8 397.4 226.9 396.7C228 395.8 229.7 396.5 230.6 398C231.7 399.5 231.7 401.3 230.6 402.1C229.7 402.7 228 402.1 226.9 400.6zM220.6 391.8C219.5 390.5 219.3 389 220.2 388.3C221.1 387.4 222.6 387.9 223.7 388.9C224.8 390.2 225 391.7 224.1 392.4C223.2 393.3 221.7 392.8 220.6 391.8zM214.6 385.4C213.3 384.8 212.7 383.7 213.1 382.8C213.5 382.2 214.6 381.9 215.9 382.4C217.2 383.1 217.8 384.2 217.4 385C217 385.9 215.7 386.1 214.6 385.4z"/>
+                                </svg>
+                            </a>
+                            
+                            <a href="https://linkedin.com/in/romeopopescu" 
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                               class="social-link"
+                               aria-label="LinkedIn Profile">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 640 640" fill="#D3D3D3">
+                                    <path d="M512 96L127.9 96C110.3 96 96 110.5 96 128.3L96 511.7C96 529.5 110.3 544 127.9 544L512 544C529.6 544 544 529.5 544 511.7L544 128.3C544 110.5 529.6 96 512 96zM231.4 480L165 480L165 266.2L231.5 266.2L231.5 480L231.4 480zM198.2 160C219.5 160 236.7 177.2 236.7 198.5C236.7 219.8 219.5 237 198.2 237C176.9 237 159.7 219.8 159.7 198.5C159.7 177.2 176.9 160 198.2 160zM480.3 480L413.9 480L413.9 376C413.9 351.2 413.4 319.3 379.4 319.3C344.8 319.3 339.5 346.3 339.5 374.2L339.5 480L273.1 480L273.1 266.2L336.8 266.2L336.8 295.4L337.7 295.4C346.6 278.6 368.3 260.9 400.6 260.9C467.8 260.9 480.3 305.2 480.3 362.8L480.3 480z"/>
+                                </svg>
+                            </a>
+                            
+                            <a href="/resume.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="social-link"
+                                aria-label="view resume">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 96 96" fill="none">
+                                    <path stroke="#D3D3D3" stroke-width="4" d="M19 19C19 14.0294 23.0294 10 28 10H57.3199C59.1733 10 60.951 10.735 62.2632 12.0438L71.1362 20.8939L74.1656 24.2063C75.3456 25.4966 76 27.1819 76 28.9304V77C76 81.9706 71.9706 86 67 86H28C23.0294 86 19 81.9706 19 77V19Z"/>
+                                    <path stroke="#D3D3D3" stroke-width="4" d="M59 11V25C59 26.6569 60.3431 28 62 28H76"/>
+                                    <path stroke="#D3D3D3" stroke-linecap="round" stroke-width="4" d="M30 59H65M30 71H36.6331M48 71H66M42 34C36.0186 34 31.0593 38.3982 30.1493 44.1522 29.9804 45.2201 30.8316 46.1254 31.9095 46.2098 38.6262 46.7358 45.3738 46.7358 52.0905 46.2098 53.1684 46.1254 54.0196 45.2201 53.8507 44.1522 52.9407 38.3982 47.9814 34 42 34z"/>
+                                    <circle cx="42" cy="28" r="6" stroke="#D3D3D3" stroke-width="4"/>
+                                </svg>
+                            </a>
+
+                        </div>
+                    </div>
+                </header>
+
+                <section class="glass rounded-xl border border-white/20 shadow-2xl m-4 md:m-8 p-6 md:p-8 fade-in delay-1">
+                    <h2 class="text-3xl md:text-4xl font-bold text-zinc-200 mb-4 flex items-center gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                        About Me
+                    </h2>
+                    <div class="space-y-4 text-zinc-300 text-base md:text-lg leading-relaxed">
+                        <p>
+                            Hey there! 👋 I'm a fullstack developer who loves crafting beautiful, functional web experiences. 
+                            I specialize in modern JavaScript frameworks and have a passion for clean, maintainable code.
+                        </p>
+                        <p>
+                            When I'm not coding, you'll find me exploring new technologies, contributing to open source, 
+                            or enjoying nature (as you can probably tell from this portfolio's theme! 🍃).
+                        </p>
+                        <div class="flex flex-wrap gap-2 mt-6">
+                            <span class="px-4 py-2 bg-white/10 rounded-full text-sm border border-white/20">React</span>
+                            <span class="px-4 py-2 bg-white/10 rounded-full text-sm border border-white/20">TypeScript</span>
+                            <span class="px-4 py-2 bg-white/10 rounded-full text-sm border border-white/20">Node.js</span>
+                            <span class="px-4 py-2 bg-white/10 rounded-full text-sm border border-white/20">Astro</span>
+                            <span class="px-4 py-2 bg-white/10 rounded-full text-sm border border-white/20">Tailwind CSS</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="glass rounded-xl border border-white/20 shadow-2xl m-4 md:m-8 p-6 md:p-8 fade-in delay-2">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-8 flex items-center gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="18" height="18" x="3" y="3" rx="2"/>
+                            <path d="M7 7h10"/>
+                            <path d="M7 12h10"/>
+                            <path d="M7 17h10"/>
+                        </svg>
+                        Featured Projects
+                    </h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 projects-grid">
+                        <div class="project-card glass rounded-xl border border-white/20 shadow-lg p-6">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="p-3 bg-white/10 rounded-lg">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D3D3D3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect width="18" height="18" x="3" y="3" rx="2"/>
+                                        <path d="m9 9 10 10"/>
+                                    </svg>
+                                </div>
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                        <polyline points="15 3 21 3 21 9"/>
+                                        <line x1="10" x2="21" y1="14" y2="3"/>
+                                    </svg>
+                                </a>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-200 mb-2">E-Commerce Platform</h3>
+                            <p class="text-gray-400 text-sm mb-4">
+                                A full-featured online store with cart, payments, and admin dashboard.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-white/5 rounded text-xs text-gray-300">React</span>
+                                <span class="px-3 py-1 bg-white/5 rounded text-xs text-gray-300">Node.js</span>
+                                <span class="px-3 py-1 bg-white/5 rounded text-xs text-gray-300">MongoDB</span>
+                            </div>
+                        </div>
+
+                        <div class="project-card glass rounded-xl border border-white/20 shadow-lg p-6">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="p-3 bg-white/10 rounded-lg">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D3D3D3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                                        <polyline points="3.29 7 12 12 20.71 7"/>
+                                        <line x1="12" x2="12" y1="22" y2="12"/>
+                                    </svg>
+                                </div>
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                        <polyline points="15 3 21 3 21 9"/>
+                                        <line x1="10" x2="21" y1="14" y2="3"/>
+                                    </svg>
+                                </a>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-200 mb-2">Task Management App</h3>
+                            <p class="text-gray-400 text-sm mb-4">
+                                Collaborative task tracker with real-time updates and team features.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-white/5 rounded text-xs text-gray-300">Vue.js</span>
+                                <span class="px-3 py-1 bg-white/5 rounded text-xs text-gray-300">Firebase</span>
+                                <span class="px-3 py-1 bg-white/5 rounded text-xs text-gray-300">Tailwind</span>
+                            </div>
+                        </div>
+
+                        <div class="project-card glass rounded-xl border border-white/20 shadow-lg p-6">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="p-3 bg-white/10 rounded-lg">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D3D3D3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z"/>
+                                        <path d="m3 9 2.45-4.9A2 2 0 0 1 7.24 3h9.52a2 2 0 0 1 1.8 1.1L21 9"/>
+                                        <path d="M12 3v6"/>
+                                    </svg>
+                                </div>
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                        <polyline points="15 3 21 3 21 9"/>
+                                        <line x1="10" x2="21" y1="14" y2="3"/>
+                                    </svg>
+                                </a>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-200 mb-2">Weather Dashboard</h3>
+                            <p class="text-gray-400 text-sm mb-4">
+                                Beautiful weather app with forecasts and interactive maps.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-white/5 rounded text-xs text-gray-300">React</span>
+                                <span class="px-3 py-1 bg-white/5 rounded text-xs text-gray-300">API</span>
+                                <span class="px-3 py-1 bg-white/5 rounded text-xs text-gray-300">Charts.js</span>
+                            </div>
+                        </div>
+
+                        <div class="project-card glass rounded-xl border border-white/20 shadow-lg p-6">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="p-3 bg-white/10 rounded-lg">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D3D3D3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                                        <rect width="20" height="14" x="2" y="6" rx="2"/>
+                                    </svg>
+                                </div>
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                        <polyline points="15 3 21 3 21 9"/>
+                                        <line x1="10" x2="21" y1="14" y2="3"/>
+                                    </svg>
+                                </a>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-200 mb-2">Blog CMS</h3>
+                            <p class="text-gray-400 text-sm mb-4">
+                                Content management system with markdown support and SEO tools.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-white/5 rounded text-xs text-gray-300">Next.js</span>
+                                <span class="px-3 py-1 bg-white/5 rounded text-xs text-gray-300">PostgreSQL</span>
+                                <span class="px-3 py-1 bg-white/5 rounded text-xs text-gray-300">Prisma</span>
+                            </div>
+                        </div>
+
+                        <div class="project-card glass rounded-xl border border-white/20 shadow-lg p-6">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="p-3 bg-white/10 rounded-lg">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D3D3D3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <polyline points="12 6 12 12 16 14"/>
+                                    </svg>
+                                </div>
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                        <polyline points="15 3 21 3 21 9"/>
+                                        <line x1="10" x2="21" y1="14" y2="3"/>
+                                    </svg>
+                                </a>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-200 mb-2">Fitness Tracker</h3>
+                            <p class="text-gray-400 text-sm mb-4">
+                                Track workouts, nutrition, and progress with data visualization.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-white/5 rounded text-xs text-gray-300">React Native</span>
+                                <span class="px-3 py-1 bg-white/5 rounded text-xs text-gray-300">Express</span>
+                                <span class="px-3 py-1 bg-white/5 rounded text-xs text-gray-300">MySQL</span>
+                            </div>
+                        </div>
+
+                        <div class="project-card glass rounded-xl border border-white/20 shadow-lg p-6">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="p-3 bg-white/10 rounded-lg">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D3D3D3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                    </svg>
+                                </div>
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                        <polyline points="15 3 21 3 21 9"/>
+                                        <line x1="10" x2="21" y1="14" y2="3"/>
+                                    </svg>
+                                </a>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-200 mb-2">Chat Application</h3>
+                            <p class="text-gray-400 text-sm mb-4">
+                                Real-time messaging app with groups, media sharing, and encryption.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-white/5 rounded text-xs text-gray-300">Socket.io</span>
+                                <span class="px-3 py-1 bg-white/5 rounded text-xs text-gray-300">Node.js</span>
+                                <span class="px-3 py-1 bg-white/5 rounded text-xs text-gray-300">Redis</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="glass rounded-xl border border-white/20 shadow-2xl m-4 md:m-8 p-6 md:p-8 fade-in delay-3">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6 flex items-center gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21.2 8.4c.5.38.8.97.8 1.6v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V10a2 2 0 0 1 .8-1.6l8-6a2 2 0 0 1 2.4 0l8 6Z"/>
+                            <path d="m22 10-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 10"/>
+                        </svg>
+                        Get In Touch
+                    </h2>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <p class="text-zinc-300 text-lg mb-6 leading-relaxed">
+                                I'm always open to new opportunities and collaborations. 
+                                Whether you have a project in mind or just want to chat about tech, 
+                                feel free to reach out!
+                            </p>
+                            <div class="space-y-4">
+                                <a href="mailto:rompop03@gmail.com" class="flex items-center gap-3 text-zinc-300 hover:text-white transition-colors group">
+                                    <div class="p-2 bg-white/10 rounded-lg group-hover:bg-white/20 transition-colors">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <rect width="20" height="16" x="2" y="4" rx="2"/>
+                                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                                        </svg>
+                                    </div>
+                                    <span>rompop03@gmail.com</span>
+                                </a>
+                                <a href="https://github.com/romeopopescu" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-zinc-300 hover:text-white transition-colors group">
+                                    <div class="p-2 bg-white/10 rounded-lg group-hover:bg-white/20 transition-colors">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+                                            <path d="M9 18c-4.51 2-5-2-7-2"/>
+                                        </svg>
+                                    </div>
+                                    <span>github.com/romeopopescu</span>
+                                </a>
+                                <a href="https://linkedin.com/in/romeopopescu" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-zinc-300 hover:text-white transition-colors group">
+                                    <div class="p-2 bg-white/10 rounded-lg group-hover:bg-white/20 transition-colors">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                                            <rect width="4" height="12" x="2" y="9"/>
+                                            <circle cx="4" cy="4" r="2"/>
+                                        </svg>
+                                    </div>
+                                    <span>linkedin.com/in/romeopopescu</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="glass rounded-lg p-6 border border-white/10">
+                            <form class="space-y-4">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-zinc-300 mb-2">Name</label>
+                                    <input type="text" id="name" name="name" 
+                                           class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-white/30 focus:bg-white/10 transition-all"
+                                           placeholder="Your name">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-zinc-300 mb-2">Email</label>
+                                    <input type="email" id="email" name="email" 
+                                           class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-white/30 focus:bg-white/10 transition-all"
+                                           placeholder="your@email.com">
+                                </div>
+                                <div>
+                                    <label for="message" class="block text-sm font-medium text-zinc-300 mb-2">Message</label>
+                                    <textarea id="message" name="message" rows="4"
+                                              class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-white/30 focus:bg-white/10 transition-all resize-none"
+                                              placeholder="Your message..."></textarea>
+                                </div>
+                                <button type="submit" 
+                                        class="w-full px-6 py-3 bg-white/20 hover:bg-white/30 text-white font-medium rounded-lg transition-all duration-300 border border-white/30 hover:border-white/50 flex items-center justify-center gap-2">
+                                    <span>Send Message</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="m22 2-7 20-4-9-9-4Z"/>
+                                        <path d="M22 2 11 13"/>
+                                    </svg>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+
+                <footer class="text-center py-8 text-zinc-400 text-sm fade-in delay-4">
+                    <p>© 2025 Romeo Popescu. Built with love.</p>
+                    <p class="mt-2">Made with Astro & Tailwind CSS</p>
+                </footer>
+            </div>
+        </div>
+
+        <script>
+            // Smooth scroll for navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+
+            // Add subtle parallax effect to video
+            let ticking = false;
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    window.requestAnimationFrame(() => {
+                        const video = document.querySelector('video');
+                        const scrolled = window.pageYOffset;
+                        if (video) {
+                            video.style.transform = `translateY(${scrolled * 0.3}px)`;
+                        }
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            });
+
+            // Form submission (you'll need to add your own backend logic)
+            document.querySelector('form')?.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thanks for reaching out! This is a demo - add your own form handling logic.');
+            });
+        </script>
+    </body>
+</html>
